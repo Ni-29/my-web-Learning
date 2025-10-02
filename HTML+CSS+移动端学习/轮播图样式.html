@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .tb-promo {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            background-color: #000000;
+            margin: 100px auto;
+        }
+
+        .tb-promo img {
+            width: 600px;
+            height: 400px;
+        }
+
+        .tb-promo .prew {
+            position: absolute;
+            top: 187px;
+            left: 0;
+            width: 26px;
+            height: 26px;
+            color: #000000;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-top-right-radius: 18px;
+            border-bottom-right-radius: 18px;
+            text-align: center;
+        }
+
+        .tb-promo .next {
+            position: absolute;
+            top: 187px;
+            right: 0;
+            width: 26px;
+            height: 26px;
+            color: #000000;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-top-left-radius: 18px;
+            border-bottom-left-radius: 18px;
+            text-align: center;
+        }
+
+        .tb-promo .promo-nav {
+            position: absolute;
+            bottom: 10px;
+            left: 250px;
+            width: 100px;
+            height: 17px;
+            /* background-color: #935959; */
+        }
+
+        .tb-promo .promo-nav ul li {
+            float: left;
+            width: 10px;
+            height: 10px;
+            margin: 2.8px 3.3px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+
+        .tb-promo .promo-nav ul .last {
+            background-color: #ff7402;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tb-promo">
+        <img src="图片/9.jpg" alt="">
+        <a href="#" class="prew">
+            &lt; </a>
+
+        <a href="#" class="next">
+            &gt;
+        </a>
+
+        <div class="promo-nav">
+            <ul>
+                <li class="last"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
