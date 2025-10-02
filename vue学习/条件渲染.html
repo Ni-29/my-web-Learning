@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <!-- v-show隐藏后结构还在 -->
+    <!-- <h2 v-show="a">欢迎学习{{name}}</h2> -->
+    <!-- v-if隐藏后结构不在 -->
+    <!-- <h2 v-if="b">欢迎学习{{name}}</h2> -->
+
+
+    <h2>n的值为{{n}}</h2>
+    <button @click="n++">点我n的值加1</button>
+    <!-- <h2 v-show="n===2">现在n等于2了</h2> -->
+    <h2 v-if="n===1">现在n等于1了</h2>
+    <h2 v-else-if="n===1">n等于1</h2>
+    <h2 v-else-if="n===2">现在n等于2了</h2>
+    <h2 v-else=>现在n为几</h2>
+
+    <!-- template和v-if配合使用 不会对结构做出改变-->
+    <template v-if>
+      <h2>欢迎</h2>
+      <h2>学习</h2>
+      <h2>Vue</h2>
+    </template>
+  </div>
+  <script>
+    Vue.config.productionTip = false
+
+    new Vue({
+      el: '#root',
+      data: {
+        // name: 'Vue',
+        // a: true,
+        // b: true,
+
+        n: 1
+      }
+    })
+  </script>
+</body>
+
+</html>

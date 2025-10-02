@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div class="box">
+    姓：<input type="text" v-model="surname"><br>
+    名：<input type="text" v-model="name"><br>
+    全名：{{fullName}}
+  </div>
+
+  <script>
+    Vue.config.productionTip = false
+
+    const vm = new Vue({
+      el: '.box',
+      data: {
+        surname: '张',
+        name: '三'
+      },
+      computed: {
+        // 完整写法：
+        // fullName: {
+        //   get() {
+        //     return this.surname + '-' + this.name
+        //   },
+        //   // 当fullName被修改时调用，通常不写
+        //   set(value) {
+        //     const arr = value.split('-')
+        //     this.surname = arr[0]
+        //     this.name = arr[1]
+        //   }
+        // }
+
+
+        // 简写（只读不改时可简写）
+        fullName() {
+          return this.surname + '-' + this.name
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

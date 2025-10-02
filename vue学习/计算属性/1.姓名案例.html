@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div class="box">
+    姓：<input type="text" v-model="surname"><br>
+    名：<input type="text" v-model="name"><br>
+    <!-- 全名：{{surname}}-{{name}}   //插值语法 -->
+    <!-- methods实现 -->
+    全名：{{fullName()}}
+  </div>
+
+  <script>
+    Vue.config.productionTip = false
+
+    new Vue({
+      el: '.box',
+      data: {
+        surname: '张',
+        name: '三'
+      },
+      methods: {
+        fullName() {
+          // .slice(0, 3)是截取一个片段，0是起始索引值，3是结尾索引值，不包含3
+          return this.surname.slice(0, 3) + '-' + this.name
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
