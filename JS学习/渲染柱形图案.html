@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      display: flex;
+      width: 700px;
+      height: 300px;
+      margin: 100px auto;
+      border-left: 1px solid #000;
+      border-bottom: 1px solid #000;
+      align-items: end;
+      justify-content: space-around;
+      text-align: center;
+    }
+
+    .box>div {
+      display: flex;
+      width: 50px;
+      background-color: #eca2a2;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .box div span {
+      margin-top: -25px;
+    }
+
+    .box div h4 {
+      margin-bottom: -35px;
+      margin-left: -10px;
+      width: 70px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div class="box"> -->
+  <!-- <div style="height: 29px;">
+      <span>29</span>
+      <h4>第一季度</h4>
+    </div>
+    <div style="height: 300px;">
+      <span>300</span>
+      <h4>第二季度</h4>
+    </div>
+    <div style="height: 138px;">
+      <span>138</span>
+      <h4>第三季度</h4>
+    </div>
+    <div style="height: 133px;">
+      <span>133</span>
+      <h4>第四季度</h4> -->
+  <!-- </div> -->
+
+  <script>
+    let arr = []
+    for (let i = 1; i < 5; i++) {
+      // let num = +prompt(`请输入第${i}季度的数据：`)
+      arr.push(+prompt(`请输入第${i}季度的数据：`))
+    }
+
+
+    // let j = +prompt("请输入第二季度的数据：")
+    // let m = +prompt("请输入第三季度的数据：")
+    // let n = +prompt("请输入第四季度的数据：")
+
+    document.write(`  <div class="box">`)
+
+    for (let i = 0; i < arr.length; i++) {
+      document.write(`
+        <div style="height:${arr[i]}px;">
+          <span>${arr[i]}</span>
+          <h4>第${i + 1}季度</h4>
+        </div>`)
+    }
+
+    document.write(`  </div>`)
+
+  </script>
+</body>
+
+</html>

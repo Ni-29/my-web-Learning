@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  const obj = {
+    uname: "小明",
+    age: 18,
+    gender: "男"
+  }
+  // 复杂数据类型必须转换为JSON字符串存储
+  localStorage.setItem("obj", JSON.stringify(obj))
+  // 取
+  console.log(localStorage.getItem("obj"));
+  // 把JOSN对象转换为对象
+  console.log(JSON.parse(localStorage.getItem("obj")));
+  // 移除
+  localStorage.removeItem("obj")
+
+
+
+</script>
+
+</html>

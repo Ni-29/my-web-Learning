@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <script>
+    const lis = document.querySelectorAll('li')
+    // lis是伪数组，不能进行增删之类的操作
+    console.log(lis)
+    // lis.pop()
+    // console.log(lis);失败
+    // 转换为真数组
+    const liss = Array.from(lis)
+    console.log(liss)
+    liss.pop()
+    console.log(liss)
+
+
+
+  </script>
+</body>
+
+</html>

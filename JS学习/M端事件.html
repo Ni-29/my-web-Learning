@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: #f08f8f;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+
+  <!-- 移动端事件 -->
+  <script>
+    const div = document.querySelector("div")
+    div.addEventListener("touchstart", function () {
+      console.log("开始触摸");
+    })
+    div.addEventListener("touchend", function () {
+      console.log("离开了");
+    })
+    div.addEventListener("touchmove", function () {
+      console.log("一直触摸，移动");
+    })
+  </script>
+</body>
+
+</html>

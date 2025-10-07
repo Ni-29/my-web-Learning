@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    form {
+      margin-bottom: 50px;
+    }
+
+    table,
+    tr,
+    td {
+      border: 1px solid #97c0e1;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
+
+    table thead {
+      background-color: #aad0f1;
+    }
+
+    input,
+    select {
+      margin: 0;
+      padding: 0;
+      width: 70px;
+      height: 22px;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    table tr td {
+      width: 105px;
+      height: 30px;
+    }
+
+    .btn {
+      width: 50px;
+      background-color: #3370c4;
+      color: #ffffff;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>新增学员</h2>
+  <form class="info" autocomplete="off">
+    姓名：<input type="text" class="uname" name="uname">&nbsp;&nbsp;&nbsp;
+    年龄：<input type="text" class="age" name="age">&nbsp;&nbsp;&nbsp;
+    性别：<select name="gender" class="gender">
+      <option value="男">男</option>
+      <option value="女">女</option>
+    </select>&nbsp;&nbsp;&nbsp;
+    薪资：<input type="text" class="salary" name="salsry">&nbsp;&nbsp;&nbsp;
+    就业城市：<select name="city" class="city">
+      <option value="北京">北京</option>
+      <option value="浙江">浙江</option>
+      <option value="上海">上海</option>
+      <option value="西安">西安</option>
+    </select>&nbsp;&nbsp;&nbsp;
+    <button class="btn">录入</button>
+  </form>
+  <h2>就业榜</h2>
+  <table>
+    <thead>
+      <tr>
+        <td>学号</td>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>性别</td>
+        <td>薪资</td>
+        <td>就业城市</td>
+        <td>操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr>
+        <td>1001</td>
+        <td>小明</td>
+        <td>19</td>
+        <td>男</td>
+        <td>10000</td>
+        <td>上海</td>
+        <td>
+          <a href="#">删除</a>
+        </td>
+      </tr> -->
+    </tbody>
+  </table>
+
+
+
+  <script>
+    // 获取元素
+    const uname = document.querySelector(".uname")
+    const age = document.querySelector(".age")
+    const gender = document.querySelector(".gender")
+    const salary = document.querySelector(".salary")
+    const city = document.querySelector(".city")
+    // 声明空数组
+    let arr = []
+
+    // 定义一个Id
+    let stuId = 2022000
+
+    // 录入模块
+    // 表单提交事件
+    const info = document.querySelector(".info")
+    info.addEventListener("submit", function (e) {
+      // 阻止默认行为  使点击录入不跳转（默认跳转）
+      e.preventDefault()
+      // console.log("11");
+
+
+      // 判断输入的内容是否为空
+      // 方法1
+      // if (uname.value === "" || age.value === "" || salary.value === "") {
+      //   // console.log("111");
+      //   alert("请填写数据")
+      //   return
+      // }
+      // 方法2
+      // 获取带有name属性的元素
+      const item = document.querySelectorAll("[name]")
+      for (let i = 0; i < item.length; i++) {
+        if (item[i].value === "") {
+          return alert("请填写数据")
+        }
+      }
+
+
+      // 创建新的对象
+      const obj = {
+        stuId: ++stuId,
+        uname: uname.value,
+        age: age.value,
+        gender: gender.value,
+        salary: salary.value,
+        city: city.value
+      }
+      // console.log(obj);
+      // 追加给数组
+      arr.push(obj)
+      // console.log(arr);
+      // 录入后重置，清空表单
+      // info.reset()
+      this.reset()
+      // 调用渲染函数
+      render()
+    })
+
+
+    const tb = document.querySelector("tbody")
+    // 页面渲染   封装函数:增加和删除都需要渲染
+    function render() {
+      // 先清空tbody中之前渲染的行，然后再渲染最新的数组
+      tb.innerHTML = ""
+      // 遍历数组
+      for (let i = 0; i < arr.length; i++) {
+        // 生成tr
+        const tr = document.createElement("tr")
+        tr.innerHTML = `
+        <td>${arr[i].stuId}</td>
+        <td>${arr[i].uname}</td>
+        <td>${arr[i].age}</td>
+        <td>${arr[i].gender}</td>
+        <td>${arr[i].salary}</td>
+        <td>${arr[i].city}</td>
+        <td>
+          <a href="#" data-id=${i}>删除</a>
+        </td>
+        `
+        // 追加
+        tb.appendChild(tr)
+      }
+    }
+
+
+    // 删除模块
+    tb.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") {
+        // console.log("111");
+        // 当前元素的自定义属性 data-id
+        // console.log(e.target.dataset.id);
+        arr.splice(e.target.dataset.id, 1)
+        // 重新渲染
+        render()
+      }
+
+    })
+  </script>
+</body>
+
+</html>

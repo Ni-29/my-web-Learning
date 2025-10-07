@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // setInterval(函数，间隔时间)
+    // setInterval(function(){
+    //   console.log("间歇函数")
+    // },2000)
+
+    function fn() {
+      console.log("间歇函数")
+    }
+    // setInterval(fn, 1000)  //函数名不加小括号
+    // 关闭定时器
+    let n = setInterval(fn, 1000)
+    clearInterval(n)
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- href练习的css -->
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    button {
+      display: block;
+      margin: 230px auto;
+      width: 200px;
+      height: 100px;
+      cursor: pointer;
+      background-color: #7fd3f9;
+      border: 1px solid #3e7f9d;
+      border-radius: 10px;
+      padding-top: 14px;
+    }
+
+    h4 {
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <script>
+    // 认识location对象:window可省略
+    console.log(window.location);
+    console.log(location);
+    // href属性
+    console.log(location.href);
+    location.href = "http://www.baidu.com"
+  </script> -->
+
+
+  <!-- href练习 -->
+  <button>
+    <h4>支付成功<br>返回原网页</h4>
+    <p>5秒后跳转回原页面</p>
+  </button>
+
+  <script>
+    const p = document.querySelector("p")
+    const btn = document.querySelector("button")
+    let i = 5
+    let tm = setInterval(function () {
+      i--
+      p.innerHTML = `${i}秒后跳转回原页面`
+      if (i === 0) {
+        clearInterval(tm)
+        location.href = "https://www.sogou.com/web?bddn=9027558936136805&brnd=6014570413749830&query=%E7%A5%81%E7%85%9C&lxoq=qiyu"
+      }
+    }, 1000)
+    btn.addEventListener("click", function () {
+      location.href = "https://www.sogou.com/web?query=%E6%98%93%E9%81%87&_ast=1753285934&_asf=www.sogou.com&w=01029901&cid=&bddn=9027558936136805&brnd=6014570413749830&s_from=result_up&sourceid=5_01_03&sessiontime=1753286070215"
+    })
+  </script>
+
+</body>
+
+</html>

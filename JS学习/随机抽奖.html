@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>年会抽奖</title>
+  <style>
+    .wrapper {
+      width: 840px;
+      height: 420px;
+      background: url(./images/bg01.jpg) no-repeat center / cover;
+      padding: 100px 250px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <strong>传智教育年会抽奖</strong>
+    <h1>一等奖：<span id="one">????</span></h1>
+    <h3>二等奖：<span id="two">???</span></h3>
+    <h5>三等奖：<span id="three">??</span></h5>
+  </div>
+  <script>
+    const personArr = ["刘德华", "张学友", "黎明", "郭富城", "周星驰"]
+    let jiang = []
+    for (let i = 1; i <= 3; i++) {
+      let random = Math.floor(Math.random() * personArr.length)
+      jiang.push(personArr[random])
+      // console.log(personArr[random])
+      personArr.splice(random, 1)
+    }
+    // console.log(jiang)
+    let span = document.querySelectorAll("span")
+    for (let i = 0; i < span.length; i++) {
+      // console.log(span[i].innerText)
+      span[i].innerText = jiang[i]
+      console.log(span[i].innerText)
+    }
+  </script>
+</body>
+
+</html>

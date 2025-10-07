@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    div {
+      position: relative;
+      width: 500px;
+      height: 200px;
+      background-color: #f9adad;
+      font-size: 70px;
+      text-align: center;
+      line-height: 200px;
+      margin: 100px auto;
+    }
+
+    button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+      text-align: center;
+      line-height: 18px;
+      border-color: #f9adad;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <button>点击</button>
+  <script>
+    const btn = document.querySelector("button")
+    btn.addEventListener("click", function () {
+      alert("你好")
+    })
+  </script> -->
+
+  <!-- 练习 -->
+  <div class="box">
+    我是广告
+    <button>×</button>
+  </div>
+  <script>
+    const btn = document.querySelector("button")
+    const div = document.querySelector("div")
+    btn.addEventListener("click", function () {
+      div.style.display = "none"
+    })
+  </script>
+</body>
+
+</html>

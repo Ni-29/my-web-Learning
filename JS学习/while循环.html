@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // let i = 1
+    // while (i <= 10) {
+    //   document.write("我要变有钱<br>")
+    //   i++
+    // }
+
+    // let i = 1
+    // let end = prompt("输入结束次数：")
+    // while (i <= end) {
+    //   document.write("我要变有钱<br>")
+    //   i++
+    // }
+
+    // 练习1：1-100
+    // let i = 1
+    // while (i <= 100) {
+    //   document.write(`${i}<br>`)
+    //   i++
+    // }
+    // 练习2:1-100和
+    // let i = 1
+    // let sum = 0
+    // while (i <= 100) {
+    //   sum += i
+    //   i++
+    // }
+    // document.write(sum)
+    // 练习3：1-100偶数和
+    // let i = 1
+    // let sum = 0
+    // while (i <= 100) {
+    //   if (i % 2 === 0) {
+    //     sum += i
+    //   }
+    //   i++
+    // }
+    // document.write(sum)
+
+    // 练习4：页面弹框
+    // while (true) {
+    //   let str = prompt("你爱我吗？")
+    //   if (str === "爱")
+    //     break
+    // }
+
+
+    // 练习5：ATM取款机
+    let sum = 0
+    while (true) {
+      let i = +prompt(`请选择你的操作：
+                  1.存钱
+                  2.取钱
+                  3.查看余额
+                  4.退出`)
+      switch (i) {
+        case 1:
+          let cun = +prompt("请您输入存钱的金额：")
+          sum += cun
+          break
+
+        case 2:
+          let qu = +prompt("请您输入取钱的金额：")
+          if (qu > sum) {
+            alert("余额不足")
+          } else {
+            sum -= qu
+          }
+          break
+
+        case 3:
+          alert(`当前余额为：${sum}`)
+          break
+      }
+      if (i === 4)
+        break
+    }
+
+    // console.log(11 && 22);
+    // console.log(false && "hello");
+    // console.log(33 || 44);
+    // console.log(0 || 55);
+
+
+  </script>
+</body>
+
+</html>

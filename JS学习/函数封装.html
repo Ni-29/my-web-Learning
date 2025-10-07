@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // // 练习1：封装函数
+    // function sayHi() {
+    //   console.log("hi")
+    // }
+    // sayHi()
+    // sayHi()
+    // sayHi()
+    // sayHi()
+    // sayHi()
+    // sayHi()
+
+
+    // // 练习2：封装九九乘法表
+    // function getSheet99() {
+    //   for (let i = 1; i <= 9; i++) {
+    //     for (let j = 1; j <= i; j++) {
+    //       document.write(`<span>${j}×${i}=${i * j}</span>`)
+    //     }
+    //     document.write("<br>")
+    //   }
+    // }
+    // getSheet99()
+    // getSheet99()
+
+
+    // // 练习3：封装一个函数，计算两个数的和
+    // function getSum() {
+    //   let i = +prompt("输入第一个数")
+    //   let j = +prompt("输入第二个数")
+    //   document.write(i + j)
+    // }
+    // getSum()
+
+
+    // // 练习4：封装一个函数，计算1-100之间所有数的和
+    // function getSum() {
+    //   let sum = 0
+    //   for (let i = 1; i <= 100; i++) {
+    //     sum += i
+    //   }
+    //   document.write(sum)
+    // }
+    // getSum()
+
+
+    // // 练习5：函数封装求和
+    // function getSum(num1 = 0, num2 = 0) {
+    //   document.write(num1 + num2)
+    // }
+    // // getSum(10, 20)
+    // // let i = +prompt("输入：")
+    // // let j = +prompt("输入：")
+    // // getSum(i, j)
+    // getSum(+prompt("输入："), +prompt("输入："))
+
+
+    // 练习6：封装函数-求学生总分
+    function getSum(arr = []) {
+      let sum = 0
+      for (let i = 0; i < arr.length; i++) {
+        sum += arr[i]
+      }
+      document.write(sum)
+      document.write(arr)
+    }
+    getSum([1, 2, 3, 4])
+
+  </script>
+</body>
+
+</html>

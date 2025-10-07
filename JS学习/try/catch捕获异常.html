@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p>123</p>
+  <script>
+    function fn() {
+      // 可能发生错误的代码
+      try {
+        const p = document.querySelector('.p')  //正确写法是('p')
+        p.style.color = 'red'
+      } catch (err) {
+        // 拦截错误，提示浏览器提供的错误信息，但是不中断程序
+        console.log(err.message)
+        // 用return中断
+        // return
+        // 或者用throw抛出异常 中断
+        throw new Error('选择器错误了')
+      }
+      finally {
+        // 不论程序对不对，一定会执行finally中的代码
+        alert('弹出对话框')
+      }
+      // catch没有return或者用throw抛出异常去中断，则11可以打印出来
+      // console.log(11)
+    }
+    fn()
+  </script>
+</body>
+
+</html>

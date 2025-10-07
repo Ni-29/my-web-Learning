@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    form {
+      margin-bottom: 50px;
+    }
+
+    input,
+    select {
+      margin: 0;
+      padding: 0;
+      width: 70px;
+      height: 22px;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    .btn {
+      background-color: #6dcddb;
+      border: 1px solid #385357;
+      color: #ffffff;
+      border-radius: 4px;
+    }
+
+    p {
+      display: inline-block;
+      box-sizing: border-box;
+      width: 862px;
+      height: 30px;
+      line-height: 30px;
+      text-align: right;
+      padding: 0 5px;
+      font-size: 14px;
+      background-color: #e2e2e2;
+    }
+
+    p span {
+      color: red;
+    }
+
+    p,
+    table,
+    tr,
+    td {
+      border: 1px solid #d9d8d8;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
+
+    table thead {
+      background-color: #e2e2e2;
+    }
+
+
+    table tr td {
+      width: 105px;
+      height: 30px;
+    }
+
+    tbody {
+      font-size: 12px;
+      /* font-weight: 400; */
+    }
+
+    td a {
+      padding: 2px 13px;
+      text-decoration: none;
+      color: #fff;
+      background-color: #910000;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>学生就业统计表</h2>
+  <form class="info" autocomplete="off">
+    <input type="text" class="uname" name="uname" placeholder="姓名">&nbsp;&nbsp;&nbsp;
+    <input type="text" class="age" name="age" placeholder="年龄">&nbsp;&nbsp;&nbsp;
+    <select name="gender" class="gender">
+      <option value="男">男</option>
+      <option value="女">女</option>
+    </select>&nbsp;&nbsp;&nbsp;
+    <input type="text" class="salary" name="salsry" placeholder="薪资">&nbsp;&nbsp;&nbsp;
+    <select name="city" class="city">
+      <option value="北京">北京</option>
+      <option value="浙江">浙江</option>
+      <option value="上海">上海</option>
+      <option value="西安">西安</option>
+    </select>&nbsp;&nbsp;&nbsp;
+    <button class="btn">⊕添加</button>
+  </form>
+  <p>共有数据 <span>0</span> 条</p>
+  <table>
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>性别</td>
+        <td>薪资</td>
+        <td>就业城市</td>
+        <td>录入时间</td>
+        <td>操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr>
+        <td>1</td>
+        <td>小明</td>
+        <td>19</td>
+        <td>男</td>
+        <td>10000</td>
+        <td>上海</td>
+        <td>2025/7/26 14:57:00</td>
+        <td>
+          <a href="#">删除</a>
+        </td>
+      </tr> -->
+    </tbody>
+  </table>
+  <script>
+    const tb = document.querySelector("tbody")
+    const span = document.querySelector("p span")
+
+    const initData = [
+      {
+        Id: 1,
+        uname: "小明",
+        age: 19,
+        gender: "男",
+        salary: "10000",
+        city: "上海",
+        time: "2025/7/26 14:57:00"
+      }
+    ]
+    // 存储
+    // localStorage.setItem("data", JSON.stringify(initData))
+
+    // 1.渲染业务
+    // 1.1 读取本地存储的数据
+    const arr = JSON.parse(localStorage.getItem("data")) || []
+    // console.log(arr);
+    // 1.2 利用map和join方法来渲染页面
+    function render() {
+      // 利用map遍历数组，返回对应tr的数组
+      const trArr = arr.map(function (ele, index) {
+        return `
+           <tr>
+              <td>${ele.Id}</td>
+              <td>${ele.uname}</td>
+              <td>${ele.age}</td>
+              <td>${ele.gender}</td>
+              <td>${ele.salary}</td>
+              <td>${ele.city}</td>
+              <td>${ele.time}</td>
+              <td>
+                <a href="#" data-id=${index}>删除</a>
+              </td>
+           </tr>
+        `
+      })
+      console.log(trArr);
+
+      // 把数组转换为字符串  join方法
+      const tr = trArr.join("")
+      // 把生成的字符串追加给tbody
+      tb.innerHTML = tr
+      // 显示几条数据
+      span.innerHTML = `${arr.length}`
+    }
+    render()
+
+
+    // 新增业务
+    let Id = 2
+    const info = document.querySelector(".info")
+    info.addEventListener("submit", function (e) {
+      // 阻止默认行为  使点击录入不跳转（默认跳转）
+      e.preventDefault()
+
+      // 判断输入的内容是否为空
+      // 获取带有name属性的元素
+      const item = document.querySelectorAll("[name]")
+      for (let i = 0; i < item.length; i++) {
+        if (item[i].value === "") {
+          return alert("请填写数据")
+        }
+      }
+
+      // 给arr数组追加对象，里面存储表单获取过来的数据
+      const uname = document.querySelector(".uname")
+      const age = document.querySelector(".age")
+      const gender = document.querySelector(".gender")
+      const salary = document.querySelector(".salary")
+      const city = document.querySelector(".city")
+
+      // 时间
+      // function getMyDate() {
+      //   const date3 = new Date()
+      //   let mth = date3.getMonth() + 1
+      //   let dt = date3.getDate()
+      //   let h = date3.getHours()
+      //   h = h < 10 ? "0" + h : h
+      //   let m = date3.getMinutes()
+      //   m = m < 10 ? "0" + m : m
+      //   let s = date3.getSeconds()
+      //   s = s < 10 ? "0" + s : s
+      //   return `${date3.getFullYear()}/${mth}/${dt} ${h}:${m}:${s}`
+      // }
+
+      let obj = {
+        Id: Id++,
+        // Id: arr.length,
+        uname: uname.value,
+        age: age.value,
+        gender: gender.value,
+        salary: salary.value,
+        city: city.value,
+        // time: getMyDate()
+        time: new Date().toLocaleString()
+      }
+      // 追加给数组
+      arr.push(obj)
+
+      // 渲染页面和重置表单
+      this.reset()
+      render()
+
+      // 把数组数据存储到本地存储里面
+      localStorage.setItem("data", JSON.stringify(arr))
+    })
+
+
+    // 删除业务
+    tb.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") {
+        // console.log(e.target.dataset.id);
+        if (confirm("您确定要删除这条数据吗？")) {
+          // 当前元素的自定义属性 data-id
+          arr.splice(e.target.dataset.id, 1)
+          // 重新渲染
+          render()
+          localStorage.setItem("data", JSON.stringify(arr))
+        }
+      }
+    })
+
+  </script>
+
+</body>
+
+</html>

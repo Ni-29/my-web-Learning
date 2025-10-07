@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 学习数组 -->
+  <!-- <script>
+    let arr = ["刘德华", "张学友", "黎明", "郭富城"]
+    console.log(arr)
+  </script> -->
+
+  <script>
+    // // 练习1
+    // let week = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
+    // console.log(week[6])
+
+    // 数组的增删改查
+    let arr = [10, "red", "abc", "哈喽"]
+    // 增（前增 后增）
+    arr.unshift("en", "嗯")
+    arr.push("你好", 123)
+    document.write(arr)
+    document.write("<br>")
+    // 查
+    document.write(arr[2])
+    document.write("<br>")
+    // 改
+    arr[2] = "ten"
+    document.write(arr)
+    document.write("<br>")
+    // 删
+    arr.pop()//删尾
+    arr.shift()//删头
+    document.write(arr)
+    document.write("<br>")
+    arr.splice(1, 1)
+    document.write(arr)
+
+
+
+
+    // // 练习2：找出大于10的元素放入新数组
+    // let arr1 = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7]
+    // let arr2 = []
+    // for (let i = 0; i < arr1.length; i++) {
+    //   if (arr1[i] >= 10) {
+    //     arr2.push(arr1[i])
+    //   }
+    // }
+    // console.log(arr1)
+    // console.log(arr2)
+
+
+    // 练习3：数组去0
+    // let arr1 = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7]
+    // let arr2 = []
+    // for (let i = 0; i < arr1.length; i++) {
+    //   if (arr1[i] !== 0) {
+    //     arr2.push(arr1[i])
+    //   }
+    // }
+    // console.log(arr1)
+    // console.log(arr2)
+
+
+  </script>
+</body>
+
+</html>

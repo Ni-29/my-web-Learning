@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    console.log(/^java$/.test('java')) //true
+    console.log(/^java$/.test('Java')) //false
+    // i修饰符
+    console.log('-----------i------------')  // i不区分大小写
+    console.log(/^java$/i.test('Java'))   //true
+    console.log(/^java$/i.test('java'))   //true
+    console.log(/^java$/i.test('JAVA'))   //true
+
+    // replace替换
+    console.log('-----------replace------------')
+    console.log("java是一门编程语言，学完JAVA工资很高".replace(/java/i, '前端'));  //只替换掉了一个
+    console.log("java是一门编程语言，学完JAVA工资很高".replace(/java/ig, '前端'));   //g全局替换
+
+
+  </script>
+</body>
+
+</html>

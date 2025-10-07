@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    button {
+      background-color: #f0bbbb;
+      border: #e57e7e 1px solid;
+      border-radius: 9px;
+      margin-left: 10px;
+    }
+
+    div {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <input type="text">
+  <script>
+    const input = document.querySelector('input')
+    input.addEventListener("blur", function () {
+      this.value.replace(/难/g, '简单')
+      console.log(this.value.replace(/难/g, '简单'));
+    })
+  </script> -->
+
+
+  <textarea name="" id="" cols="30" rows="10" placeholder="请输入内容"></textarea>
+  <button>发布</button>
+  <div></div>
+
+  <script>
+    const textarea = document.querySelector("textarea")
+    const button = document.querySelector("button")
+    const div = document.querySelector("div")
+
+    button.addEventListener("click", function () {
+      const re = textarea.value.replace(/[傻逼]/g, '*')
+      div.innerHTML = re
+      textarea.value = ""
+    })
+  </script>
+</body>
+
+</html>

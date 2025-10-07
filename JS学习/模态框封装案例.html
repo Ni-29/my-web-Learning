@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    button {
+      width: 100px;
+      height: 60px;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    .model {
+      position: relative;
+      box-sizing: border-box;
+      width: 550px;
+      height: 200px;
+      margin: 185px auto;
+      padding: 8px;
+      background-color: #f6dcdc;
+      font-size: 35px;
+      border: #857e7e 1px solid;
+      border-radius: 10px;
+    }
+
+    i {
+      position: absolute;
+      right: 22px;
+      top: 0;
+      cursor: pointer;
+    }
+
+    .body {
+      text-align: center;
+      margin-top: 27px;
+      font-size: 32px;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="delect">删除</button>
+  <button id="login">登录</button>
+  <!-- <div class="model">
+    <div class="header">温馨提示<i>x</i></div>
+    <div class="body">您没有删除操作权限</div>
+  </div> -->
+
+
+  <script>
+    // 模态框Model 构造函数封装
+    function Model(title = '', message = '') {
+      // 1.创建div标签
+      this.modelBox = document.createElement('div')
+      // 2.div标签类名添加
+      this.modelBox.className = 'model'
+      // 3.标签内加入两个div标签
+      this.modelBox.innerHTML = `
+        <div class="header">${title}<i>x</i></div>
+        <div class="body">${message}</div>
+      `
+      console.log(this.modelBox)
+    }
+    // new Model('温馨提示', '您没有删除操作权限')
+    // new Model('友情提示', '您还没有登录')
+
+    // 给构造函数原型对象挂载open方法
+    Model.prototype.open = function () {
+      // 先判断页面中是否有model盒子
+      const box = document.querySelector('.model')
+      // 逻辑与中断  前者为假则中断，不执行后面的去执行下面的，为真则执行后者的
+      box && box.remove()
+      // 把创建的modelBox显示到页面中
+      document.body.append(this.modelBox)
+      // x绑定事件
+      this.modelBox.querySelector('i').addEventListener('click', () => {
+        this.close()
+      })
+    }
+
+    // 测试点击删除按钮
+    document.querySelector('#delect').addEventListener('click', function () {
+      const del = new Model('温馨提示', '您没有删除操作权限')
+      del.open()
+    })
+    // 测试点击登录按钮
+    document.querySelector('#login').addEventListener('click', function () {
+      const login = new Model('友情提示', '您还没有登录')
+      login.open()
+    })
+
+    // 给构造函数原型对象挂载close方法
+    Model.prototype.close = function () {
+      // 把创建的modelBox显示到页面中
+      this.modelBox.remove()
+    }
+
+  </script>
+</body>
+
+</html>

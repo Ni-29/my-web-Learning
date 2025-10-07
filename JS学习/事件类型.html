@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 鼠标事件
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: #f49f9f;
+    } */
+  </style>
+</head>
+
+<body>
+  <!-- 鼠标事件
+  <div></div>
+  <script>
+    const div = document.querySelector("div")
+    // 鼠标点击
+    div.addEventListener("click", function () {
+      div.style.backgroundColor = "#ccc"
+    })
+    // 鼠标经过
+    div.addEventListener("mouseenter", function () {
+      div.style.backgroundColor = "#accddd"
+    })
+    // 鼠标离开
+    div.addEventListener("mouseleave", function () {
+      div.style.backgroundColor = "#f49f9f"
+    })
+  </script> -->
+
+
+
+  <!-- 焦点事件
+  <input type="text">
+  <script>
+    const ipt = document.querySelector("input")
+    // 获得焦点
+    ipt.addEventListener("focus", function () {
+      console.log("获得焦点")
+    })
+    // 失去焦点
+    ipt.addEventListener("blur", function () {
+      console.log("失去焦点")
+    }) -->
+
+
+
+  <!-- 键盘事件 -->
+  <input type="text">
+  <script>
+    const ipt = document.querySelector("input")
+    // 键盘按下触发
+    ipt.addEventListener("keydown", function () {
+      console.log("键盘按下")
+    })
+    // 键盘抬起触发
+    ipt.addEventListener("keyup", function () {
+      console.log("键盘抬起")
+    }) 
+  </script>
+
+
+
+
+  <!-- 文本事件
+  <input type="text">
+  <script>
+    const ipt = document.querySelector("input")
+    // 用户输入事件
+    ipt.addEventListener("input", function () {
+      console.log(ipt.value)
+    })
+    </script> -->
+</body>
+
+</html>

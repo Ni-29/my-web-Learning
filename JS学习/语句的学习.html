@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // if分支语句
+    // 单分支
+    // let score = +prompt("输入高考成绩：")
+    // if (score >= 700) {
+    //   alert("恭喜考入清华")
+    // }
+    // 双分支
+    // let uname = prompt("输入用户名：")
+    // let psw = prompt("输入密码：")
+    // if (uname === "nini" && psw === "123456") {
+    //   alert("登录成功")
+    // } else {
+    //   alert("登录失败")
+    // }
+    // 多分支
+    // let score = +prompt("输入成绩")
+    // if (score >= 90) {
+    //   alert("你的成绩为优秀")
+    // }
+    // else if (score >= 70) {
+    //   alert("你的成绩为良好")
+    // }
+    // else if (score >= 60) {
+    //   alert("你的成绩为及格")
+    // }
+    // else {
+    //   alert("你的成绩为不及格")
+    // }
+
+
+    // 三元运算符
+    // let num1 = +prompt("输入第一个数")
+    // let num2 = +prompt("输入第二个数")
+    // console.log(`两个数最大的那个是：${num1 > num2 ? num1 : num2}`)
+    // 练习
+    // let num = +prompt("输入一个数：")
+    // console.log(num < 10 ? "0" + num : num)
+
+
+    //switch语句
+    let num1 = +prompt("输入第一个数")
+    let num2 = +prompt("输入第二个数")
+    switch (prompt("输入运算符：")) {
+      case "+":
+        console.log(num1 + num2)
+        break
+      case "-":
+        console.log(num1 - num2)
+        break
+      case "*":
+        console.log(num1 * num2)
+        break
+      case "/":
+        console.log(num1 / num2)
+        break
+      default:
+        console.log("运算符输入错误")
+    }
+
+
+  </script>
+</body>
+
+</html>

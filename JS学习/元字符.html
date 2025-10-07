@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const str = "学习前端"
+    // 元字符
+    // 1.边界符
+    // 1.1 ^
+    console.log("---------^---------")
+    const reg = /^前端/
+    const reg1 = /^学习/
+    console.log(reg.test(str)) //false
+    console.log(reg1.test(str)) //true
+    // 1.2 $
+    console.log("---------$---------")
+    const reg2 = /前端$/
+    console.log(reg2.test(str)) //true
+
+    console.log(/^哈$/.test("哈"))  //true
+    console.log(/^哈$/.test("哈哈"))  //false  精确匹配，要求只有一个哈
+
+
+
+    console.log("--------------量词---------------")
+    // 2.量词
+    // 2.1 *（重复零次或更多次）
+    console.log("---------*---------")
+    console.log(/^哈$/.test('哈哈'))  //false
+    console.log(/^哈*$/.test('哈哈哈哈'))  //true
+    console.log(/^哈*$/.test(''))  //true
+    console.log(/^哈*$/.test('二哈哈'))  //false   要求只能有哈
+    // 2.2 +（重复一次或更多次）
+    console.log("---------+---------")
+    console.log(/^哈+$/.test('哈哈'))  //true
+    console.log(/^哈+$/.test(''))  //false 不包括零次
+    // 2.3 ？(重复零次或一次）
+    console.log("---------?---------")
+    console.log(/^哈?$/.test(''))  //true
+    console.log(/^哈?$/.test('哈'))  //true
+    console.log(/^哈?$/.test('哈哈'))  //false 不包括零次
+    // 2.4 {n}(重复n次）
+    console.log("---------{n}---------")
+    console.log(/^哈{2}$/.test('哈哈'))  //true
+    console.log(/^哈{2}$/.test('哈哈哈哈'))  //false
+    // 2.5 {n,}(重复n次或更多次）
+    console.log("---------{n,}---------")
+    console.log(/^哈{2,}$/.test('哈哈'))  //true
+    console.log(/^哈{2,}$/.test('哈哈哈哈'))  //true
+    console.log(/^哈{2,}$/.test('哈'))  //false
+    // 2.6 {n,m}(重复n到m次）
+    console.log("---------{n,m}---------")
+    console.log(/^哈{2,4}$/.test('哈哈'))  //true
+    console.log(/^哈{2,4}$/.test('哈哈哈哈'))  //true
+    console.log(/^哈{2,4}$/.test('哈'))  //false
+
+
+    console.log("--------------字符类---------------")
+    // 2.字符类
+    // 2.1 []:中括号中任意字符出现都返回true
+    console.log("---------[]---------")
+    console.log(/[abc]/.test('abandon'))  //true
+    // 2.1.1 精确匹配中的[]--只能出现一个
+    console.log(/^[abc]$/.test('a'))  //true
+    console.log(/^[abc]$/.test('ab'))   //false
+    // 2.2.2 []中加连字符
+    console.log("---------[-]---------")
+    console.log(/^[a-z]$/.test("p"))  //true
+    console.log(/^[a-z]$/.test("ap"))  //false
+    console.log(/^[0-9]$/.test(2))  //true
+    console.log(/^[a-zA-Z0-9]$/.test(2))  //true
+    console.log(/^[a-zA-Z0-9]$/.test('p'))  //true
+    console.log(/^[1-9][0-9]{4,}$/.test("10000"))  //true   {n}只重复它前面的
+    // 2.2.2 []中加^  表示取反
+    console.log("---------[^]---------")
+    console.log(/^[^a-z]$/.test("a"))  //false
+    console.log(/^[^a-zA-Z]$/.test("1"))  //true
+
+
+
+  </script>
+</body>
+
+</html>

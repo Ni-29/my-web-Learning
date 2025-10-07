@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // Object.keys静态方法
+    const o = { name: '小红', age: 18 }
+    const arr = Object.keys(o)
+    console.log(arr)
+    // Object.values静态方法
+    console.log(Object.values(o))
+    // Object.assign静态方法
+    const obj = {}
+    Object.assign(obj, o)
+    console.log(obj);
+    // Object.assign使用场景：给对象加属性
+    Object.assign(o, { gender: '女' })
+    console.log(o)
+  </script>
+</body>
+
+</html>

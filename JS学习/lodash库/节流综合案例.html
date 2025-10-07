@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    video {
+      width: 700px;
+      height: 500px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="video">
+    <video
+      src="https://vdse.bdstatic.com//aca764fcda1757e7020acf88cdc45ee9.mp4?authorization=bce-auth-v1%2F40f207e648424f47b2e3dfbb1014b1a5%2F2025-09-04T08%3A12%3A20Z%2F-1%2Fhost%2F175b63ade6f22c1a88810e22563951531ba640583c5ee3d7314b04553f901185"
+      controls></video>
+  </div>
+  <script src="lodash.min.js"></script>
+  <script>
+    const video = document.querySelector('video')
+    video.ontimeupdate = _.throttle(() => {
+      // console.log(111)
+      // console.log(video.currentTime)
+      localStorage.setItem('currentTime', video.currentTime)
+    }, 1000)
+
+    video.onloadeddata = () => {
+      // console.log(11)
+      // localStorage.getItem('currentTime')
+      video.currentTime = localStorage.getItem('currentTime') || 0
+    }
+  </script>
+</body>
+
+</html>

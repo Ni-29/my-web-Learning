@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户注册</title>
+  <style>
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    .code-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .code-group input {
+      flex: 1;
+    }
+
+    .code-group button {
+      background-color: #f0f0f0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 0 15px;
+      font-size: 14px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .code-group button:hover {
+      background-color: #e0e0e0;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      margin: 25px 0;
+    }
+
+    .checkbox-group input {
+      margin-right: 8px;
+    }
+
+    .next-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #1890ff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .next-btn:hover {
+      background-color: #40a9ff;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: #999;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>用户注册</h1>
+
+    <form>
+      <!-- 手机号输入 -->
+      <div class="form-group">
+        <label for="phone">输入手机号码</label>
+        <input type="tel" id="phone" placeholder="请输入手机号码" maxlength="11">
+      </div>
+
+      <!-- 短信验证码 -->
+      <div class="form-group">
+        <label for="code">短信验证码</label>
+        <div class="code-group">
+          <input type="text" id="code" placeholder="请输入验证码">
+          <button type="button" id="send-code">发送验证码</button>
+        </div>
+        <div class="hint">请输入正确的验证码</div>
+      </div>
+
+      <!-- 密码设置 -->
+      <div class="form-group">
+        <label for="password">设置密码</label>
+        <input type="password" id="password" placeholder="6-20位字母、数字和符号组合">
+        <div class="hint">设置6至20位字母、数字和符号组合</div>
+      </div>
+
+      <!-- 确认密码 -->
+      <div class="form-group">
+        <label for="confirm-password">确认密码</label>
+        <input type="password" id="confirm-password" placeholder="请再次输入密码">
+        <div class="hint">请再次输入上面密码</div>
+      </div>
+
+      <!-- 协议勾选 -->
+      <div class="checkbox-group">
+        <input type="checkbox" id="agree">
+        <label for="agree">已阅读并同意《用户服务协议》</label>
+      </div>
+
+      <!-- 下一步按钮 -->
+      <button type="submit" class="next-btn">下一步</button>
+    </form>
+  </div>
+
+  <script>
+    // 发送验证码功能
+    document.getElementById('send-code').addEventListener('click', function () {
+      const phone = document.getElementById('phone').value;
+      if (!phone || !/^1[3-9]\d{9}$/.test(phone)) {
+        alert('请输入正确的手机号码');
+        return;
+      }
+
+      // 这里应该是发送验证码的AJAX请求
+      console.log('发送验证码到:', phone);
+
+      // 倒计时效果
+      let countdown = 60;
+      const btn = this;
+      btn.disabled = true;
+      btn.textContent = `${countdown}秒后重发`;
+
+      const timer = setInterval(() => {
+        countdown--;
+        btn.textContent = `${countdown}秒后重发`;
+
+        if (countdown <= 0) {
+          clearInterval(timer);
+          btn.disabled = false;
+          btn.textContent = '发送验证码';
+        }
+      }, 1000);
+    });
+  </script>
+</body>
+
+</html>

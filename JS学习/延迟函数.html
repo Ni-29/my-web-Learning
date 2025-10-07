@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 250px;
+      height: 200px;
+      background-color: #e09292;
+      margin: 250px auto;
+      font-size: 15px;
+      color: rgb(0, 0, 0);
+    }
+
+    span {
+      position: absolute;
+      right: 10px;
+      bottom: 5px;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      border: 1px solid #312c2c;
+      border-radius: 20%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 语法
+  <script>
+    setTimeout(function () {
+      console.log("11111");
+      document.write("时间到了")
+    }, 3000) 
+    </script>
+    -->
+
+
+  <!-- 练习 -->
+  <div>
+    这是一个延时广告,5秒后自动关闭
+    <span>5</span>
+  </div>
+  <script>
+    const div = document.querySelector("div")
+    const span = document.querySelector("span")
+
+    let i = 5
+    let tm = setInterval(function () {
+      i--
+      span.innerHTML = `${i}`
+      if (i === 0) {
+        clearInterval(tm)
+      }
+    }, 1000)
+
+    setTimeout(function () {
+      div.style.display = "none"
+    }, 5000)
+  </script>
+</body>
+
+</html>

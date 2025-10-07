@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 公共的属性写在构造函数中
+    function Star(uname, age) {
+      this.uname = uname
+      this.age = age
+      // 写在构造函数中，占内存，非公共使用
+      // this.sing=function(){
+      //   console.log('唱歌');
+      // }
+    }
+    // 公共的方法写在原型对象中,写在这里是公共使用，节省内存
+    Star.prototype.sing = function () {
+      console.log('唱歌')
+    }
+    const hzhf = new Star('黄子弘凡', 26)
+    const sk = new Star('石凯', 26)
+
+    // 调用
+    hzhf.sing()
+    sk.sing()
+
+    console.log(hzhf.sing === sk.sing) //true   如果sing在构造函数中，则为false
+
+  </script>
+</body>
+
+</html>

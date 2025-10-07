@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .bd {
+      position: relative;
+      margin: 30px 250px;
+      width: 630px;
+      height: 700px;
+      background-color: #ccc;
+    }
+
+    .middle {
+      position: relative;
+      display: inline-block;
+      width: 500px;
+      height: 700px;
+      background-color: #333;
+    }
+
+    .layer {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 250px;
+      cursor: move;
+      background-color: rgb(0, 0, 0, 0.3);
+    }
+
+    .small {
+      display: inline-block;
+      width: 120px;
+      height: 700px;
+      margin-left: 6px;
+    }
+
+    li {
+      width: 120px;
+      height: 132px;
+      list-style-type: none;
+      background-color: #1bb00e;
+      margin-bottom: 9px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .active {
+      border: 2px solid #1bb00e;
+    }
+
+    .big {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 509px;
+      width: 500px;
+      height: 700px;
+      /* background-color: #6c95aa; */
+      background-image: url('images/祁煜11.jpg');
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bd">
+    <div class="middle">
+      <img src="images/祁煜11.jpg" alt="">
+      <div class="layer"></div>
+    </div>
+    <div class="small">
+      <ul>
+        <li class="active"><img src="images/祁煜11.jpg" alt=""></li>
+        <li><img src="images/祁煜22.jpg" alt=""></li>
+        <li><img src="images/祁煜33.jpg" alt=""></li>
+        <li><img src="images/祁煜44.jpg" alt=""></li>
+        <li><img src="images/祁煜55.jpg" alt=""></li>
+      </ul>
+    </div>
+    <div class="big"></div>
+  </div>
+
+  <script>
+    const middle = document.querySelector(".middle")
+    const small = document.querySelector(".small")
+    const big = document.querySelector(".big")
+
+    // 鼠标经过小盒子
+    // 事件委托
+    small.addEventListener("mouseover", function (e) {
+      if (e.target.tagName === 'IMG') {
+        // console.log(111);
+        // 排他
+        this.querySelector('.active').classList.remove('active')
+        // 当前元素添加
+        e.target.parentNode.classList.add('active')
+        // 拿到当前图片的src
+        // console.log(e.target.src);
+        // 替换中等div
+        middle.querySelector('img').src = e.target.src
+        // 大盒子更换背景图片
+        big.style.backgroundImage = `url(${e.target.src})`
+      }
+    })
+
+    // 鼠标经过中盒子
+    middle.addEventListener('mouseenter', show)
+    middle.addEventListener('mouseleave', hide)
+
+    let timeId = 0
+    // 显示函数
+    function show() {
+      // 先清除定时器
+      clearInterval(timeId)
+
+      big.style.display = 'block'
+    }
+    // 隐藏函数
+    function hide() {
+      timeId = setTimeout(function () {
+        big.style.display = 'none'
+      }, 200)
+    }
+
+    // 鼠标经过大盒子
+    big.addEventListener('mouseenter', show)
+    big.addEventListener('mouseleave', hide)
+
+    const layer = document.querySelector('.layer')
+    // 鼠标经过中等盒子，显示黑色遮罩层
+    middle.addEventListener('mouseenter', function () {
+      layer.style.display = 'block'
+    })
+    // 鼠标离开中等盒子，隐藏黑色遮罩层
+    middle.addEventListener('mouseleave', function () {
+      layer.style.display = 'none'
+    })
+
+
+    // 移动黑色遮罩层
+    middle.addEventListener('mousemove', function (e) {
+      // console.log(11);
+      // 盒子在middle中的坐标=鼠标在页面中的坐标-middle盒子的坐标
+      //鼠标在页面中的x坐标
+      // console.log(e.pageX); 
+      // middle在页面中的坐标 (左侧)
+      // console.log(middle.getBoundingClientRect().left);
+      let x = e.pageX - middle.getBoundingClientRect().left
+      // console.log(x);
+      // 同理，鼠标在y轴上的位置
+      let y = e.pageY - middle.getBoundingClientRect().top - document.documentElement.scrollTop
+      // console.log(x, y);
+
+      // layer.style.left = x + 'px'
+      // layer.style.top = y + 'px'
+      // 黑色遮罩层在middle中移动，需要限定移动的距离
+      if (x >= 0 && x <= 500 && y >= 0 && y <= 700) {
+        // 黑色盒子不是一直移动的
+        // 声明两个变量，黑色盒子移动的变量
+        let mx = 0, my = 0
+        if (x < 125) mx = 0
+        if (x >= 125 && x < 375) mx = x - 125
+        if (x >= 375) mx = 250
+        layer.style.left = mx + 'px'
+        if (y < 125) my = 0
+        if (y >= 125 && y < 575) my = y - 125
+        if (y >= 575) my = 450
+        layer.style.top = my + 'px'
+        // 大盒子移动
+        big.style.backgroundPositionX = -2 * mx + 'px'
+        big.style.backgroundPositionY = -2 * my + 'px'
+      }
+
+    })
+  </script>
+</body>
+
+</html>

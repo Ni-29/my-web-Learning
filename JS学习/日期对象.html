@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 500px;
+      height: 40px;
+      border: 1px solid rgb(4, 56, 81);
+      line-height: 40px;
+      text-align: center;
+      color: #000000;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    // // 实例化
+    // // 得到当前时间
+    // const date = new Date()
+    // console.log(date);
+    // // 指定时间
+    // const date1 = new Date("2025-10-1 08:30:00")
+    // console.log(date1);
+
+
+    // // 日期对象方法
+    // // 获得日期对象
+    // const date2 = new Date()
+    // console.log(date2.getFullYear());
+    // console.log(date2.getMonth() + 1);
+    // console.log(date2.getDate());
+    // console.log(date2.getDay());
+    // 返回星期
+    const arr = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+    console.log(new Date().getDay());  //获得数字，即数组索引号
+    console.log(arr[new Date().getDay()]);
+    // //练习
+    // // const date3 = new Date()
+    // // document.write(date3.getFullYear())
+    // // document.write("-")
+    // // document.write(date3.getMonth() + 1 < 10 ? "0" + (date3.getMonth() + 1) : date3.getMonth() + 1)
+    // // document.write("-")
+    // // document.write(date3.getDate() < 10 ? "0" + date3.getDate() : date3.getDate())
+    // // document.write("&nbsp")
+    // // document.write(date3.getHours())
+    // // document.write(":")
+    // // document.write(date3.getMinutes())
+    // const div = document.querySelector("div")
+    // function getMyDate() {
+    //   const date3 = new Date()
+    //   let mth = date3.getMonth() + 1
+    //   mth = mth < 10 ? "0" + mth : mth
+    //   let dt = date3.getDate()
+    //   dt = dt < 10 ? "0" + dt : dt
+    //   let h = date3.getHours()
+    //   h = h < 10 ? "0" + h : h
+    //   let m = date3.getMinutes()
+    //   m = m < 10 ? "0" + m : m
+    //   let s = date3.getSeconds()
+    //   s = s < 10 ? "0" + s : s
+    //   return `当前时间为${date3.getFullYear()}年${mth}月${dt}日 ${h}时${m}分${s}秒`
+    // }
+    // document.write(getMyDate())
+    // div.innerHTML = getMyDate()
+    // setInterval(function () {
+    //   div.innerHTML = getMyDate()
+    // }, 1000)
+
+
+    // 时间戳
+    // 1
+    // const date = new Date()
+    // console.log(date.getTime());
+    // 2
+    // console.log(+new Date());
+    // 3
+    // console.log(Date.now());
+
+    // 指定时间戳
+    // console.log(+new Date("2025-7-20 08:30:00"))
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 1 -->
+  <!-- <p class="name">
+    <span class="tag"></span><br>
+    <span class="tag"></span>
+  </p>
+  <script>
+    const gift = '50g茶叶,清洗球'
+    const arr = gift.split(',')
+    // console.log(arr)
+    const span = document.querySelectorAll('.tag')
+    // console.log(span[1]);
+    span[0].innerHTML = '【赠品】' + arr[0]
+    span[1].innerHTML = '【赠品】' + arr[1]
+  </script> -->
+
+  <!-- 2 -->
+  <!-- <p class="name"></p>
+  <script>
+    const gift = '50g茶叶,清洗球'
+    // 根据生成的数组个数生成对应的span标签
+    const arr = gift.split(',').map(function (item) {
+      return `<span class="tag">【赠品】${item}</span>`
+    })
+    // console.log(arr)
+    const str = arr.join('<br>')
+    console.log(str);
+
+    const p = document.querySelector('p')
+    p.innerHTML = str
+  </script> -->
+
+  <!-- 2简写 -->
+  <p class="name"></p>
+  <script>
+    const gift = '50g茶叶,清洗球'
+    document.querySelector('p').innerHTML = gift.split(',').map(item => `<span class="tag">【赠品】${item}</span>`).join('<br>')
+  </script>
+</body>
+
+</html>

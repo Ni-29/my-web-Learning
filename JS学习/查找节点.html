@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="dad">
+    <div class="baby">x</div>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+  </div>
+
+  <script>
+    // // 父节点
+    // const baby = document.querySelector(".baby")
+    // console.log(baby)
+    // const dad = baby.parentNode
+    // console.log(dad)
+    // // 子节点
+    // const dad = document.querySelector(".dad")
+    // const baby = dad.children
+    // console.log(baby)
+    // 兄弟节点
+    const li = document.querySelector("ul li:nth-child(2)")
+    console.log(li.nextElementSibling);
+    console.log(li.previousElementSibling);
+
+  </script>
+</body>
+
+</html>

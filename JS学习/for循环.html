@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 练习7 -->
+  <!-- <style>
+    span {
+      display: inline-block;
+      width: 66px;
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      margin: 5px 5px;
+      padding: 5px 5px;
+      border: 1px solid #ddcdcd;
+      box-shadow: 2px 3px 3px #ffadad;
+    }
+  </style> -->
+</head>
+
+<body>
+  <script>
+    // // 练习1:输出1-100
+    // for (let i = 1; i <= 100; i++) {
+    //   document.write(`${i} <br>`)
+    // }
+
+
+    // // 练习2：1-100偶数和
+    // let sum = 0
+    // for (let i = 1; i <= 100; i++) {
+    //   if (i % 2 === 0) {
+    //     sum += i
+    //   }
+    // }
+    // document.write(sum)
+
+
+    // // 练习3：打印5个星星
+    // for (let i = 1; i <= 5; i++) {
+    //   document.write("★")
+    // }
+
+
+    // // 练习4：循环数组
+    // let arr = ["a", "b", "c", "d"]
+    // for (i = 0; i <= arr.length - 1; i++) {
+    //   document.write(arr[i])
+    // }
+
+
+    // //练习5：记单词
+    // let sum = 0
+    // for (let i = 1; i <= 3; i++) {
+    //   document.write(`第${i}天:<br>`)
+    //   for (let j = 1; j <= 5; j++) {
+    //     document.write(`记住第${j}个单词<br>`)
+    //     sum += 1
+    //   }
+    // }
+    // document.write(`三天一共记住${sum}个单词`)
+
+
+    // // 练习6：打印星星
+    // let row = prompt("输入行数：")
+    // let col = prompt("输入列数：")
+    // for (let i = 1; i <= row; i++) {
+    //   for (let j = 1; j <= col; j++) {
+    //     document.write("★")
+    //   }
+    //   document.write("<br>")
+    // }
+
+
+    // //练习7：九九乘法表
+    // for (let i = 1; i <= 9; i++) {
+    //   for (let j = 1; j <= i; j++) {
+    //     document.write(`<span>${j}×${i}=${i * j}</span>`)
+    //   }
+    //   document.write("<br>")
+    // }
+
+
+    // // 练习8：数组求和和平均值
+    // let arr = [2, 6, 1, 7, 4]
+    // let sum = 0
+    // for (let i = 0; i < arr.length; i++) {
+    //   sum += arr[i]
+    // }
+    // let aver = sum / arr.length
+    // document.write(sum)
+    // document.write("<br>")
+    // document.write(aver)
+
+
+    // 练习9：数组最大最小值
+    let arr = [2, 6, 1, 77, 52, 25, 7]
+    let max = arr[0]
+    let min = arr[0]
+    for (let i = 1; i <= arr.length; i++) {
+      if (max < arr[i]) {
+        max = arr[i]
+      }
+      if (min > arr[i]) {
+        min = arr[i]
+      }
+    }
+    document.write(`该数组最大值为${max}<br>`)
+    document.write(`该数组最小值为${min}`)
+
+  </script>
+</body>
+
+</html>

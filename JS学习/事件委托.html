@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    li {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>第1个事件</li>
+    <li>第2个事件</li>
+    <li>第3个事件</li>
+    <li>第4个事件</li>
+    <li>第5个事件</li>
+    <p>我不需要变色</p>
+  </ul>
+  <script>
+    const ul = document.querySelector("ul")
+    ul.addEventListener("click", function (e) {
+      //  alert("11")
+      // console.log(e.target)
+      // e.target.style.color = "red"
+      // 只点击li有效
+      if (e.target.tagName === "LI") {
+        e.target.style.color = "red"
+      }
+
+    })
+  </script>
+</body>
+
+</html>
