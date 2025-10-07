@@ -1,0 +1,36 @@
+<template>
+  <div>
+    <h2>Home组件内容</h2>
+    <div>
+      <ul class="nav nav-tabs">
+        <li>
+          <router-link
+            class="list-group-item"
+            active-class="active"
+            to="/home/news"
+            >News</router-link
+          >
+        </li>
+        <li>
+          <router-link
+            class="list-group-item"
+            active-class="active"
+            to="/home/message"
+            >Message</router-link
+          >
+        </li>
+      </ul>
+      <!-- 缓存  让不展示的路由组件保持挂载，不被销毁，include可以不写，不写表示全部被缓存，include后‘’中写的是需要缓存的组件名 -->
+      <!-- 如果缓存多个，那么include="['News','Messages']"写成数组样式 -->
+      <keep-alive include="News">
+        <router-view></router-view>
+      </keep-alive>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Home",
+};
+</script>
